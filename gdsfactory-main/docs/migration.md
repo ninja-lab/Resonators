@@ -1,4 +1,0 @@
-# Migration guidelines
-
-```{tableofcontents}
-```
