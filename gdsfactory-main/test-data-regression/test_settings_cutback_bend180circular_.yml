@@ -1,0 +1,10 @@
+info:
+  n_bends: 82
+name: cutback_bend180_CFbend__92908eb9
+settings:
+  cols: 6
+  component: Fbend_circular_Mgdsfactorypcomponentspbend_circular_SA180
+  rows: 6
+  spacing: 3
+  straight: straight
+  straight_length: 5

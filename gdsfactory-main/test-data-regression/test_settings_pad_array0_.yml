@@ -1,0 +1,14 @@
+info: {}
+name: pad_array_Ppad_S150_150_0fb13e0e
+settings:
+  columns: 1
+  layer: MTOP
+  pad: pad
+  port_orientation: 0
+  rows: 3
+  size:
+  - 100
+  - 100
+  spacing:
+  - 150
+  - 150
