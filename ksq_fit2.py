@@ -20,7 +20,7 @@ from matplotlib.ticker import EngFormatter
 import numpy as np
 import matplotlib.patches as patches
 from scipy.optimize import least_squares
-
+plt.close('all')
 filename = 'S0_lambda10.xlsx'
 df = pd.read_excel(filename)
 df.columns
@@ -93,7 +93,7 @@ print(f'k_eff^2 = {k2_eff:.4f},   Q_m = {Qm:.0f}')
 print('Guess:', p0)
 print('Solution:', sol.x)
 print('Delta:', sol.x - p0)
-
+fs = 625094243
 fp = np.sqrt(fs**2 / (1 - k2_guess))
 fstp = (fp - fs) / 333
 f_dense = np.linspace(fs - 333*fstp, fp + 333*fstp, 1000)
@@ -102,14 +102,25 @@ Yfit = Y_bvd(p_opt/scales, w_dense)
 Yguess = Y_bvd(p0/scales, w_dense)
 
 plt.figure(figsize=(10, 5))
-plt.plot(f, 20*np.log10(np.abs(Ydata)), label='Measured')
-plt.plot(f_dense, 20*np.log10(np.abs(Yfit)), label='Fitted', linestyle='--')
-plt.plot(f_dense, 20*np.log10(np.abs(Yguess)), label='Guess', linestyle='none', marker= '*', markevery=20)
-plt.xlabel('Frequency (Hz)')
-plt.ylabel('Admittance (dB)')
-plt.legend()
+plt.plot(f/1e6, 20*np.log10(np.abs(Ydata)), label='Measured',
+         linestyle='none', marker= '.', markevery=26, markersize='10')
+plt.plot(f_dense/1e6, 20*np.log10(np.abs(Yfit)), label='Fitted', linestyle='-')
+plt.plot(f_dense/1e6, 20*np.log10(np.abs(Yguess)), label='Estimate', linestyle='none', marker= '*', markevery=20)
+plt.xlabel('Frequency (MHz)', size='x-large')
+plt.ylabel('Admittance [dB]', size='x-large')
+plt.legend(fontsize='large')
+plt.annotate('Fit Results:',
+             xy=(0.2, 0.45), xycoords='figure fraction', color='k', fontsize=14)
+plt.annotate(r'$C_0 = $' + f'{sol.x[0] * scales[0] * 1e12:.2f} pF',
+             xy=(0.2, 0.4), xycoords='figure fraction', color='k', fontsize=14)
+plt.annotate(r'$C_m = $' + f'{sol.x[1] * scales[1] * 1e12:.2f} pF',
+             xy=(0.2, 0.35), xycoords='figure fraction', color='k', fontsize=14)
+plt.annotate(r'$L_m = $' + f'{sol.x[2] * scales[2] * 1e9:.2f} nH',
+             xy=(0.2, 0.3), xycoords='figure fraction', color='k', fontsize=14)
+plt.annotate(r'$R_m = $' + f'{sol.x[3] * scales[3]:.3f} Ω', 
+             xy=(0.2, 0.25), xycoords='figure fraction', color='k', fontsize=14)
 plt.grid(True)
-plt.title('BVD Model Fit vs Measured Admittance - Improved')
+plt.title('BVD Model Fit vs Measured Admittance')
 plt.show()
 
 plt.figure(figsize=(10, 5))
@@ -124,12 +135,12 @@ plt.title('BVD Model Fit vs Measured Admittance - Improved')
 plt.show()
 
 plt.figure(figsize=(10, 5))
-plt.plot(f, np.imag(Ydata), label='Measured')
-plt.plot(f_dense, np.imag(Yfit), label='Fitted', linestyle='--')
-plt.plot(f_dense, np.imag(Yguess), label='Guess', linestyle='none', marker= '*', markevery=20)
-plt.xlabel('Frequency (Hz)')
-plt.ylabel('imag(admittance)')
-plt.legend()
+plt.plot(f/1e6, np.imag(Ydata), label='Measured')
+plt.plot(f_dense/1e6, np.imag(Yfit), label='Fitted', linestyle='--')
+plt.plot(f_dense/1e6, np.imag(Yguess), label='Guess', linestyle='none', marker= '*', markevery=20)
+plt.xlabel('Frequency (Hz)', size='x-large')
+plt.ylabel('imag(admittance)', size='x-large')
+plt.legend(fontsize='large')
 plt.grid(True)
 plt.title('BVD Model Fit vs Measured Admittance - Improved')
 plt.show()
