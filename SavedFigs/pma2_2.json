@@ -1,0 +1,24 @@
+{
+  "group": "pma2",
+  "translate": 200,
+  "items": [
+    { "tool": "Rectangle", "color": "Blue", "lineWidth": 1,
+     "x1": 950, "y1": 99, "x2": 969, "y2": 109 },
+    { "tool": "Rectangle", "color": "Blue", "lineWidth": 3,
+     "x1": 940, "y1": 89, "x2": 979, "y2": 119 },
+    { "tool": "Filled Oval", "color": "Red",
+     "x1": 994, "y1": 96, "x2": 1009, "y2": 117 },
+    { "tool": "Filled Oval", "color": "Red",
+     "x1": 1048, "y1": 55, "x2": 1082, "y2": 65 },
+    { "tool": "Filled Oval", "color": "Magenta",
+     "x1": 960, "y1": 45, "x2": 989, "y2": 59 },
+    { "tool": "Line", "color": "Green", "lineWidth": 1,
+     "x1": 766, "y1": 16, "x2": 778, "y2": 37 },
+    { "tool": "Line", "color": "Green", "lineWidth": 1,
+     "x1": 769, "y1": 6, "x2": 788, "y2": 35 },
+    { "tool": "Line", "color": "Green", "lineWidth": 1,
+     "x1": 778, "y1": 3, "x2": 794, "y2": 29 },
+    { "tool": "Line", "color": "Black", "lineWidth": 1,
+     "x1": 856, "y1": 48, "x2": 893, "y2": 55 }
+  ]
+}
