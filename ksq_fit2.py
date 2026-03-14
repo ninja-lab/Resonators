@@ -21,7 +21,7 @@ import numpy as np
 import matplotlib.patches as patches
 from scipy.optimize import least_squares
 plt.close('all')
-filename = 'S0_lambda10.xlsx'
+filename = './data/S0_lambda10.xlsx'
 df = pd.read_excel(filename)
 df.columns
 

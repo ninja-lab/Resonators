@@ -279,8 +279,8 @@ myDis(r'$\kappa = \frac{2\pi}{\lambda} = ' +\
  
 myDis(r'$\text{area}\, A = ' + disp_ans(A*(1e6)**2)+ r'\mu\text{m}^2$')
 
-myDis(r'$C_p = \epsilon^T (1 - k_{emp}^2) \frac{A}{2l}' + \
-      disp_ans())
+#myDis(r'$C_p = \epsilon^T (1 - k_{emp}^2) \frac{A}{2l}' + \
+ #     disp_ans())
 myDis(r'$C_p = \epsilon^T (1 - k_{th}^2) \frac{A}{2l}')
 myDis(r'$L_s = \frac{1 - k_{emp}^2}{2G_f^2 k_{emp}^2 v_a^2 C_{p+}}$')
 
